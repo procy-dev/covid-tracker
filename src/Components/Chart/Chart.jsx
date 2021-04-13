@@ -45,7 +45,7 @@ const Chart = ( { data: { confirmed, recovered, deaths }, country} ) => {
                 title: { display: true, text: `Current state in ${country}`}
             }}/>)
             : null
-    )
+        );
     
     return (
         <div className={styles.container}>
