@@ -16,18 +16,19 @@ class App extends React.Component {
     }
 
     handleCountryChange = async (country) => {
-        const fetchedData = fetchData(country);
-        this.setState({ data: fetchedData, country });
+        const data = await fetchData(country);
+
+        this.setState({ data, country });
     }
 
     render() {
-        const { data } = this.state;
+        const { data, country } = this.state;
 
         return (
             <div className={styles.container}>
-                <Cards data={data} country={this.state.country} />
+                <Cards data={data} />
                 <CountryPicker handleCountryChange={this.handleCountryChange}/>
-                <Chart data={data} />
+                <Chart data={data} country={country}/>
             </div>
         );
     }

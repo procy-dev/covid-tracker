@@ -12,6 +12,7 @@ export const fetchData = async (country) => {
     try {
         const { data: { confirmed, recovered, deaths, lastUpdate} } = await axios.get(dynamicUrl);
 
+        console.log('api',confirmed)
         return { confirmed, recovered, deaths, lastUpdate };
     } catch (e) {
         return e;
